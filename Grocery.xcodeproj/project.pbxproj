@@ -15,6 +15,10 @@
 		E051821F21F6AE6300BB9D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E051821D21F6AE6300BB9D38 /* LaunchScreen.storyboard */; };
 		E051822A21F6AE6300BB9D38 /* GroceryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051822921F6AE6300BB9D38 /* GroceryTests.swift */; };
 		E051823521F6AE6300BB9D38 /* GroceryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051823421F6AE6300BB9D38 /* GroceryUITests.swift */; };
+		E051824321F6AE9E00BB9D38 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824221F6AE9E00BB9D38 /* GroceryItem.swift */; };
+		E051824421F6AE9E00BB9D38 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824221F6AE9E00BB9D38 /* GroceryItem.swift */; };
+		E051824621F6B0B600BB9D38 /* ItemDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824521F6B0B600BB9D38 /* ItemDiscount.swift */; };
+		E051824721F6B0B600BB9D38 /* ItemDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824521F6B0B600BB9D38 /* ItemDiscount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 		E051823021F6AE6300BB9D38 /* GroceryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E051823421F6AE6300BB9D38 /* GroceryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryUITests.swift; sourceTree = "<group>"; };
 		E051823621F6AE6300BB9D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E051824221F6AE9E00BB9D38 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		E051824521F6B0B600BB9D38 /* ItemDiscount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDiscount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,8 @@
 				E051821B21F6AE6300BB9D38 /* Assets.xcassets */,
 				E051821D21F6AE6300BB9D38 /* LaunchScreen.storyboard */,
 				E051822021F6AE6300BB9D38 /* Info.plist */,
+				E051824221F6AE9E00BB9D38 /* GroceryItem.swift */,
+				E051824521F6B0B600BB9D38 /* ItemDiscount.swift */,
 			);
 			path = Grocery;
 			sourceTree = "<group>";
@@ -260,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E051821721F6AE6200BB9D38 /* SecondViewController.swift in Sources */,
+				E051824621F6B0B600BB9D38 /* ItemDiscount.swift in Sources */,
 				E051821321F6AE6200BB9D38 /* AppDelegate.swift in Sources */,
+				E051824321F6AE9E00BB9D38 /* GroceryItem.swift in Sources */,
 				E051821521F6AE6200BB9D38 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E051824421F6AE9E00BB9D38 /* GroceryItem.swift in Sources */,
 				E051822A21F6AE6300BB9D38 /* GroceryTests.swift in Sources */,
+				E051824721F6B0B600BB9D38 /* ItemDiscount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

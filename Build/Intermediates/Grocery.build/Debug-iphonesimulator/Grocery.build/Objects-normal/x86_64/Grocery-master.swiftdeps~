@@ -1,0 +1,8 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "480e5fab15c0ad54e0b798b790a9203e"
+build_time: [1548121887, 927772000]
+inputs:
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/SecondViewController.swift": [1548121826, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/AppDelegate.swift": [1548121826, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/GroceryItem.swift": [9223372036, 854775807]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/FirstViewController.swift": [1548121826, 0]
