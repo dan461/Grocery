@@ -31,8 +31,47 @@ class CartViewModel
     
     public func addItemToCart(newItem: CartItem, quantity: Int = 0, weight: Double = 0.0)
     {
-        let cartItem = newItem.copy() as! CartItem
+        let qty = quantity == 0 ? 0 : quantity
+        let itemWeight = weight == 0.0 ? 0.0 : weight
+        let cartItem = createCopyForItemsArray(newItem: newItem, quantity: qty, weight: itemWeight)
         cartItems.append(cartItem)
+        total += findCostOfNewItem(newItem: newItem)
+    }
+    
+    private func createCopyForItemsArray(newItem: CartItem, quantity: Int = 0, weight: Double = 0.0) -> CartItem
+    {
+        let cartItem = newItem.copy() as! CartItem
+        if newItem.itemType == .SoldPerUnit{
+            newItem.quantity = quantity
+        }
+        else if newItem.itemType == .SoldByWeight
+        {
+            newItem.weight = weight
+        }
+        
+        return cartItem
+    }
+    
+    private func findCostOfNewItem(newItem: CartItem) -> Double
+    {
+        var itemCost = 0.0
+        if newItem.discount == nil
+        {
+            if newItem.itemType == .SoldPerUnit
+            {
+                if let qty = newItem.quantity{
+                    itemCost = (newItem.itemPrice * Double(qty))
+                }
+            }
+            else if newItem.itemType == .SoldByWeight
+            {
+                if let weight = newItem.weight {
+                    itemCost = (newItem.itemPrice * weight)
+                }
+            }
+        }
+        
+        return itemCost
     }
     
     

@@ -38,11 +38,21 @@ class CartViewModelTests: XCTestCase {
         XCTAssertEqual(4.0, TestVM.invArray[0].itemPrice)
     }
     
-    func testItemsAreAddedToCart()
+    func testItemsAreAddedToCartAndThatItemIsCorrect()
     {
-        TestVM.addItemToCart(newItem: testSoup)
+        TestVM.addItemToCart(newItem: testSoup, quantity: 3)
         
         XCTAssertEqual(1, TestVM.cartItems.count)
+        XCTAssertEqual(3, TestVM.cartItems[0].quantity)
+    }
+    
+    func testTotalIsCorrectWithOneItemAddedWithNoDiscount()
+    {
+        testSoup.itemPrice = 2.0
+        
+        TestVM.addItemToCart(newItem: testSoup, quantity: 1)
+        
+        XCTAssertEqual(2.0, TestVM.total)
     }
 
     func testPerformanceExample() {
