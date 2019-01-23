@@ -18,8 +18,7 @@ protocol GroceryItem
 {
     var itemName: String { get set }
     var itemPrice: Double { get set }
-    var currentPrice: Double { get }
-    var type: ItemType { get set }
+    var itemType: ItemType { get set }
     
     var quantity: Int? { get set }
     var weight: Double? { get set }
