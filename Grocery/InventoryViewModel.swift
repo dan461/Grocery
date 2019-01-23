@@ -60,7 +60,7 @@ class InventoryViewModel
     
     func applyPrice(price: Double)
     {
-        
+        selectedItem?.itemPrice = price
     }
     
     func applyDiscount(discount: ItemDiscount)
