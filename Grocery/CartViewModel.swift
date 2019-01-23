@@ -57,22 +57,28 @@ class CartViewModel
         var itemCost = 0.0
         if newItem.discount == nil
         {
-            if newItem.itemType == .SoldPerUnit
-            {
-                if let qty = newItem.quantity{
-                    itemCost = (newItem.itemPrice * Double(qty))
-                }
-            }
-            else if newItem.itemType == .SoldByWeight
-            {
-                if let weight = newItem.weight {
-                    itemCost = (newItem.itemPrice * weight)
-                }
-            }
+            itemCost = updateTotalWithoutDiscount(newItem: newItem)
         }
         
         return itemCost
     }
     
-    
+    private func updateTotalWithoutDiscount(newItem: CartItem) -> Double
+    {
+        var cost = 0.0
+        if newItem.itemType == .SoldPerUnit
+        {
+            if let qty = newItem.quantity{
+                cost = (newItem.itemPrice * Double(qty))
+            }
+        }
+        else if newItem.itemType == .SoldByWeight
+        {
+            if let weight = newItem.weight {
+                cost = (newItem.itemPrice * weight)
+            }
+        }
+        
+        return cost
+    }
 }
