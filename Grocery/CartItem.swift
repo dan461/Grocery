@@ -8,8 +8,25 @@
 
 import Foundation
 
-class CartItem: GroceryItem
+class CartItem: GroceryItem, NSCopying
 {
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CartItem(name: itemName, price: itemPrice, type: itemType)
+        if let copyDiscount = discount{
+            copy.discount = copyDiscount
+        }
+        
+        if let copyQty = quantity{
+            copy.quantity = copyQty
+        }
+        
+        if let copyWeight = weight {
+            copy.weight = copyWeight
+        }
+        
+        return copy
+    }
+    
     var itemName: String = ""
     var itemPrice: Double = 0.0
     var itemType: ItemType
