@@ -1,13 +1,13 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "480e5fab15c0ad54e0b798b790a9203e"
-build_time: [1548277221, 575724000]
+build_time: [1548280693, 274517000]
 inputs:
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/InventoryViewController.swift": [1548122798, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/ItemDiscount.swift": [1548122488, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/CartItem.swift": [1548123701, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/Inventory.swift": [9223372036, 854775807]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/AppDelegate.swift": [1548121826, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/GroceryItem.swift": [1548123701, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/InventoryViewModel.swift": [1548123155, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/CartViewModel.swift": [1548123180, 0]
-  "/Users/danshriver/Developer/Katas/Grocery/Grocery/CartViewController.swift": [1548122782, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/InventoryViewController.swift": [1548278304, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/ItemDiscount.swift": [1548278303, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/CartItem.swift": [1548278304, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/Inventory.swift": [1548278304, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/AppDelegate.swift": [1548278303, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/GroceryItem.swift": [1548278304, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/InventoryViewModel.swift": [1548279575, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/CartViewModel.swift": [1548280371, 0]
+  "/Users/danshriver/Developer/Katas/Grocery/Grocery/CartViewController.swift": [1548278304, 0]
