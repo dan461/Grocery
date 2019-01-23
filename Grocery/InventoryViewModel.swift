@@ -65,7 +65,7 @@ class InventoryViewModel
     
     func applyDiscount(discount: ItemDiscount)
     {
-        
+        selectedItem?.discount = discount
     }
     
     

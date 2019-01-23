@@ -27,7 +27,20 @@ class InventoryViewModelTests: XCTestCase {
         
         XCTAssertEqual(2.00, Inventory.shared.apples.itemPrice)
     }
-
+    
+    func testInventoryVmSetsDiscountCorrectlyAndDiscountResultsInCorrectCurrentPrice()
+    {
+        TestVM.selectedItem = Inventory.shared.apples
+        TestVM.applyPrice(price: 2.00)
+        let testDiscount = ItemDiscount(discountType: .markdown, discountAmount: 0.5)
+        TestVM.applyDiscount(discount: testDiscount)
+        
+        XCTAssertEqual(0.5, Inventory.shared.apples.discount?.amount)
+        XCTAssertEqual(0.50, TestVM.selectedItem?.discount?.amount)
+        
+       
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
