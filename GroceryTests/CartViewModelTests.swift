@@ -9,18 +9,40 @@
 import XCTest
 
 class CartViewModelTests: XCTestCase {
+    
+    let TestVM = CartViewModel()
+    
+    var testSoup = CartItem(name: "Soup", price: 1.00, type: .SoldPerUnit)
+    var testBread = CartItem(name: "Bread", price: 1.00, type: .SoldPerUnit)
+    var testChicken = CartItem(name: "Chicken", price: 1.00, type: .SoldByWeight)
+    var testApples = CartItem(name: "Apples", price: 1.00, type: .SoldByWeight)
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        testSoup = TestVM.invArray[0]
+        testBread = TestVM.invArray[1]
+        testApples = TestVM.invArray[3]
+        testChicken = TestVM.invArray[6]
+        
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInventoryPricesAreCorrect() {
+        let inventoryVM = InventoryViewModel()
+        inventoryVM.selectedItem = inventoryVM.invArray[0]
+        inventoryVM.applyPrice(price: 4.0)
+        
+        XCTAssertEqual(4.0, TestVM.invArray[0].itemPrice)
+    }
+    
+    func testItemsAreAddedToCart()
+    {
+        TestVM.addItemToCart(newItem: testSoup)
+        
+        XCTAssertEqual(1, TestVM.cartItems.count)
     }
 
     func testPerformanceExample() {

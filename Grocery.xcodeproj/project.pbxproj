@@ -30,6 +30,7 @@
 		E051826021F90D3F00BB9D38 /* InventoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */; };
 		E051826221F90D6400BB9D38 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826121F90D6400BB9D38 /* Inventory.swift */; };
 		E051826321F90D6400BB9D38 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826121F90D6400BB9D38 /* Inventory.swift */; };
+		E051826721F91E6D00BB9D38 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		E051825421F6B3E600BB9D38 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModelTests.swift; sourceTree = "<group>"; };
 		E051826121F90D6400BB9D38 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				E051822921F6AE6300BB9D38 /* GroceryTests.swift */,
+				E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */,
 				E051822B21F6AE6300BB9D38 /* Info.plist */,
 				E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */,
 			);
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E051826721F91E6D00BB9D38 /* CartViewModelTests.swift in Sources */,
 				E051824A21F6B21F00BB9D38 /* CartViewController.swift in Sources */,
 				E051825021F6B36600BB9D38 /* InventoryViewModel.swift in Sources */,
 				E051826321F90D6400BB9D38 /* Inventory.swift in Sources */,

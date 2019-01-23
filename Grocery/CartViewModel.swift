@@ -21,11 +21,18 @@ class CartViewModel
     init()
     {
         cartItems = [CartItem]()
+        createInventory()
     }
     
     public func createInventory()
     {
         invArray = [sharedInv.soup, sharedInv.bread, sharedInv.oatmeal, sharedInv.apples, sharedInv.bananas, sharedInv.steak, sharedInv.chicken]
+    }
+    
+    public func addItemToCart(newItem: CartItem, quantity: Int = 0, weight: Double = 0.0)
+    {
+        let cartItem = newItem.copy() as! CartItem
+        cartItems.append(cartItem)
     }
     
     
