@@ -1,11 +1,56 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
+- "ItemType"
+- "GroceryItem"
 provides-nominal:
+- "7Grocery8ItemTypeO"
+- "7Grocery0A4ItemP"
 provides-member:
+- ["7Grocery8ItemTypeO", ""]
+- ["7Grocery0A4ItemP", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "=="
+- "Double"
+- !private "FloatLiteralType"
+- "GroceryItem"
+- "Int"
+- !private "IntegerLiteralType"
+- "ItemDiscount"
+- "ItemType"
+- "String"
 depends-member:
+- ["SQ", ""]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["7Grocery0A4ItemP", "Double"]
+- ["7Grocery0A4ItemP", "Int"]
+- ["7Grocery0A4ItemP", "ItemDiscount"]
+- ["7Grocery0A4ItemP", "ItemType"]
+- ["7Grocery0A4ItemP", "String"]
+- ["7Grocery0A4ItemP", "currentPrice"]
+- ["7Grocery0A4ItemP", "discount"]
+- ["7Grocery0A4ItemP", "itemName"]
+- ["7Grocery0A4ItemP", "itemPrice"]
+- ["7Grocery0A4ItemP", "quantity"]
+- ["7Grocery0A4ItemP", "type"]
+- ["7Grocery0A4ItemP", "weight"]
+- ["SH", ""]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["s6HasherV", "combine"]
+- ["7Grocery8ItemTypeO", "SoldByWeight"]
+- ["7Grocery8ItemTypeO", "SoldPerUnit"]
+- ["7Grocery8ItemTypeO", "__derived_enum_equals"]
+- ["7Grocery8ItemTypeO", "deinit"]
+- ["7Grocery8ItemTypeO", "hash"]
+- ["7Grocery8ItemTypeO", "hashValue"]
 depends-nominal:
+- "SQ"
+- "7Grocery0A4ItemP"
+- "SH"
+- !private "s6HasherV"
+- "7Grocery8ItemTypeO"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
@@ -32,4 +77,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "5bf39d8b5f0094ca83c744a0da4fb204"
+interface-hash: "a805f39f448986d1c9e63e6eded22500"

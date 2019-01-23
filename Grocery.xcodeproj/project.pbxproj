@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E051821321F6AE6200BB9D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051821221F6AE6200BB9D38 /* AppDelegate.swift */; };
-		E051821521F6AE6200BB9D38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051821421F6AE6200BB9D38 /* FirstViewController.swift */; };
-		E051821721F6AE6200BB9D38 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051821621F6AE6200BB9D38 /* SecondViewController.swift */; };
 		E051821A21F6AE6200BB9D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E051821821F6AE6200BB9D38 /* Main.storyboard */; };
 		E051821C21F6AE6300BB9D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E051821B21F6AE6300BB9D38 /* Assets.xcassets */; };
 		E051821F21F6AE6300BB9D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E051821D21F6AE6300BB9D38 /* LaunchScreen.storyboard */; };
@@ -19,6 +17,19 @@
 		E051824421F6AE9E00BB9D38 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824221F6AE9E00BB9D38 /* GroceryItem.swift */; };
 		E051824621F6B0B600BB9D38 /* ItemDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824521F6B0B600BB9D38 /* ItemDiscount.swift */; };
 		E051824721F6B0B600BB9D38 /* ItemDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824521F6B0B600BB9D38 /* ItemDiscount.swift */; };
+		E051824921F6B21F00BB9D38 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824821F6B21F00BB9D38 /* CartViewController.swift */; };
+		E051824A21F6B21F00BB9D38 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824821F6B21F00BB9D38 /* CartViewController.swift */; };
+		E051824C21F6B22F00BB9D38 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824B21F6B22F00BB9D38 /* InventoryViewController.swift */; };
+		E051824D21F6B22F00BB9D38 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824B21F6B22F00BB9D38 /* InventoryViewController.swift */; };
+		E051824F21F6B36600BB9D38 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824E21F6B36600BB9D38 /* InventoryViewModel.swift */; };
+		E051825021F6B36600BB9D38 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051824E21F6B36600BB9D38 /* InventoryViewModel.swift */; };
+		E051825221F6B39200BB9D38 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051825121F6B39200BB9D38 /* CartViewModel.swift */; };
+		E051825321F6B39200BB9D38 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051825121F6B39200BB9D38 /* CartViewModel.swift */; };
+		E051825521F6B3E600BB9D38 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051825421F6B3E600BB9D38 /* CartItem.swift */; };
+		E051825621F6B3E600BB9D38 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051825421F6B3E600BB9D38 /* CartItem.swift */; };
+		E051826021F90D3F00BB9D38 /* InventoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */; };
+		E051826221F90D6400BB9D38 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826121F90D6400BB9D38 /* Inventory.swift */; };
+		E051826321F90D6400BB9D38 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826121F90D6400BB9D38 /* Inventory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +52,6 @@
 /* Begin PBXFileReference section */
 		E051820F21F6AE6200BB9D38 /* Grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E051821221F6AE6200BB9D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E051821421F6AE6200BB9D38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E051821621F6AE6200BB9D38 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E051821921F6AE6200BB9D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E051821B21F6AE6300BB9D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E051821E21F6AE6300BB9D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +64,13 @@
 		E051823621F6AE6300BB9D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E051824221F6AE9E00BB9D38 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		E051824521F6B0B600BB9D38 /* ItemDiscount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDiscount.swift; sourceTree = "<group>"; };
+		E051824821F6B21F00BB9D38 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		E051824B21F6B22F00BB9D38 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		E051824E21F6B36600BB9D38 /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
+		E051825121F6B39200BB9D38 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		E051825421F6B3E600BB9D38 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModelTests.swift; sourceTree = "<group>"; };
+		E051826121F90D6400BB9D38 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,14 +122,18 @@
 			isa = PBXGroup;
 			children = (
 				E051821221F6AE6200BB9D38 /* AppDelegate.swift */,
-				E051821421F6AE6200BB9D38 /* FirstViewController.swift */,
-				E051821621F6AE6200BB9D38 /* SecondViewController.swift */,
+				E051824821F6B21F00BB9D38 /* CartViewController.swift */,
 				E051821821F6AE6200BB9D38 /* Main.storyboard */,
 				E051821B21F6AE6300BB9D38 /* Assets.xcassets */,
 				E051821D21F6AE6300BB9D38 /* LaunchScreen.storyboard */,
 				E051822021F6AE6300BB9D38 /* Info.plist */,
 				E051824221F6AE9E00BB9D38 /* GroceryItem.swift */,
+				E051825421F6B3E600BB9D38 /* CartItem.swift */,
 				E051824521F6B0B600BB9D38 /* ItemDiscount.swift */,
+				E051824B21F6B22F00BB9D38 /* InventoryViewController.swift */,
+				E051824E21F6B36600BB9D38 /* InventoryViewModel.swift */,
+				E051825121F6B39200BB9D38 /* CartViewModel.swift */,
+				E051826121F90D6400BB9D38 /* Inventory.swift */,
 			);
 			path = Grocery;
 			sourceTree = "<group>";
@@ -123,6 +143,7 @@
 			children = (
 				E051822921F6AE6300BB9D38 /* GroceryTests.swift */,
 				E051822B21F6AE6300BB9D38 /* Info.plist */,
+				E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */,
 			);
 			path = GroceryTests;
 			sourceTree = "<group>";
@@ -267,11 +288,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E051821721F6AE6200BB9D38 /* SecondViewController.swift in Sources */,
+				E051824C21F6B22F00BB9D38 /* InventoryViewController.swift in Sources */,
 				E051824621F6B0B600BB9D38 /* ItemDiscount.swift in Sources */,
+				E051825521F6B3E600BB9D38 /* CartItem.swift in Sources */,
+				E051826221F90D6400BB9D38 /* Inventory.swift in Sources */,
 				E051821321F6AE6200BB9D38 /* AppDelegate.swift in Sources */,
 				E051824321F6AE9E00BB9D38 /* GroceryItem.swift in Sources */,
-				E051821521F6AE6200BB9D38 /* FirstViewController.swift in Sources */,
+				E051824F21F6B36600BB9D38 /* InventoryViewModel.swift in Sources */,
+				E051825221F6B39200BB9D38 /* CartViewModel.swift in Sources */,
+				E051824921F6B21F00BB9D38 /* CartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E051824A21F6B21F00BB9D38 /* CartViewController.swift in Sources */,
+				E051825021F6B36600BB9D38 /* InventoryViewModel.swift in Sources */,
+				E051826321F90D6400BB9D38 /* Inventory.swift in Sources */,
+				E051825621F6B3E600BB9D38 /* CartItem.swift in Sources */,
+				E051826021F90D3F00BB9D38 /* InventoryViewModelTests.swift in Sources */,
+				E051825321F6B39200BB9D38 /* CartViewModel.swift in Sources */,
 				E051824421F6AE9E00BB9D38 /* GroceryItem.swift in Sources */,
+				E051824D21F6B22F00BB9D38 /* InventoryViewController.swift in Sources */,
 				E051822A21F6AE6300BB9D38 /* GroceryTests.swift in Sources */,
 				E051824721F6B0B600BB9D38 /* ItemDiscount.swift in Sources */,
 			);

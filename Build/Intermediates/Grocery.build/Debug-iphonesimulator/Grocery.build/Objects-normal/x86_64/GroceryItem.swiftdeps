@@ -16,6 +16,7 @@ depends-top-level:
 - "GroceryItem"
 - "Int"
 - !private "IntegerLiteralType"
+- "ItemDiscount"
 - "ItemType"
 - "String"
 depends-member:
@@ -24,13 +25,14 @@ depends-member:
 - ["SQ", "hashValue"]
 - ["7Grocery0A4ItemP", "Double"]
 - ["7Grocery0A4ItemP", "Int"]
+- ["7Grocery0A4ItemP", "ItemDiscount"]
 - ["7Grocery0A4ItemP", "ItemType"]
 - ["7Grocery0A4ItemP", "String"]
-- ["7Grocery0A4ItemP", "currentPrice"]
+- ["7Grocery0A4ItemP", "discount"]
 - ["7Grocery0A4ItemP", "itemName"]
 - ["7Grocery0A4ItemP", "itemPrice"]
+- ["7Grocery0A4ItemP", "itemType"]
 - ["7Grocery0A4ItemP", "quantity"]
-- ["7Grocery0A4ItemP", "type"]
 - ["7Grocery0A4ItemP", "weight"]
 - ["SH", ""]
 - ["SH", "hash"]
@@ -74,4 +76,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "3b3c4358c7b9371fe3b47d7452702829"
+interface-hash: "568d742eab76089c792875c15ff26a81"
