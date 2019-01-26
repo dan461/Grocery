@@ -58,6 +58,7 @@ class CartViewModel
         total += findCostOfNewItem(newItem: newItem)
     }
     
+    // reurns an item if it is already in the cart
     private func itemCurrentlyInCart(newItem: CartItem) -> CartItem?
     {
         var currentItem: CartItem? = nil
@@ -67,6 +68,7 @@ class CartViewModel
         
         return currentItem
     }
+    
     
     private func createCopyForItemsArray(newItem: CartItem, quantity: Int = 0, weight: Double = 0.0) -> CartItem
     {
@@ -111,20 +113,36 @@ class CartViewModel
     private func costOfMarkedDownItem(newItem: CartItem, discount: ItemDiscount) -> Double
     {
         var cost = 0.0
-        if let limit = discount.limit, let qty = newItem.quantity
+        // if there's a limit we need to know total number in cart already
+        let currentQty = itemCurrentlyInCart(newItem: newItem)?.quantity ?? 0
+        
+        if let limit = discount.limit
         {
-            // need to know total number in cart already
-            if qty > limit
+            if newItem.itemType == .SoldPerUnit
             {
-                
-                let regPricedItems = qty - limit
-                cost = ((newItem.itemPrice - discount.amount) * Double(limit)) + (newItem.itemPrice * Double(regPricedItems))
-                
-               
-            } else {
-                cost = (newItem.itemPrice - discount.amount) * Double(qty)
+                if let additionalQty = newItem.quantity
+                {
+                    if currentQty + additionalQty <= limit
+                    {
+                        // still under limit
+                        cost = (newItem.itemPrice - discount.amount) * Double(additionalQty)
+                    }
+                    else if currentQty + additionalQty > limit
+                    {
+                        // new items put us over the limit. add the total of discounted and regular price items
+                        let regPricedItems = (currentQty + additionalQty) - limit
+                        cost = ((newItem.itemPrice - discount.amount) * Double(additionalQty - regPricedItems)) + (newItem.itemPrice * Double(regPricedItems))
+                    }
+                    else if currentQty > limit
+                    {
+                        // over the limit, no discount
+                        cost = newItem.itemPrice * Double(additionalQty)
+                    }
+                }
             }
-        } else {
+        }
+        else // no limit
+        {
            cost = (newItem.itemPrice - discount.amount) * Double(newItem.quantity ?? 0)
         }
         
