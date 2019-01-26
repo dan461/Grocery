@@ -95,6 +95,14 @@ class CartViewModelTests: XCTestCase {
         XCTAssertEqual(4, TestVM.cartItems[0].quantity)
     }
     
+    func testWeightOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
+    {
+        TestVM.addItemToCart(newItem: testApples, weight: 2.0)
+        TestVM.addItemToCart(newItem: testApples, weight: 2.0)
+        
+        XCTAssertEqual(4, TestVM.cartItems[0].weight)
+    }
+    
     func testTotalCorrectAfterFifthCanOfSoupAddedToCartWithFourCansWithFiftyCentsOffLimitFour()
     {
         testSoup.discount = fiftyCentMarkdown
