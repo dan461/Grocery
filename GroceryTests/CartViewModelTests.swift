@@ -16,6 +16,8 @@ class CartViewModelTests: XCTestCase {
     var testBread = CartItem(name: "Bread", price: 1.00, type: .SoldPerUnit)
     var testChicken = CartItem(name: "Chicken", price: 1.00, type: .SoldByWeight)
     var testApples = CartItem(name: "Apples", price: 1.00, type: .SoldByWeight)
+    
+    var fiftyCentMarkdown = ItemDiscount.init(discountType: .markdown, discountAmount: 0.5)
 
     override func setUp() {
         
@@ -23,6 +25,8 @@ class CartViewModelTests: XCTestCase {
         testBread = TestVM.invArray[1]
         testApples = TestVM.invArray[3]
         testChicken = TestVM.invArray[6]
+        
+        testSoup.discount = nil
         
     }
 
@@ -61,6 +65,46 @@ class CartViewModelTests: XCTestCase {
         TestVM.addItemToCart(newItem: testSoup, quantity: 2)
         
         XCTAssertEqual(4.0, TestVM.total)
+    }
+    
+    func testTotalIsCorrectWithTwoCansOfSoupFiftyCentsOff()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(newItem: testSoup, quantity: 2)
+        
+        XCTAssertEqual(3.0, TestVM.total)
+    }
+    
+    func testTotalIsCorrectWithFiveCansOfSoupWithFiftyCentsOffLimitFour()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.discount?.limit = 4
+        testSoup.itemPrice = 2.0
+        
+        TestVM.addItemToCart(newItem: testSoup, quantity: 5)
+        
+        XCTAssertEqual(8.0, TestVM.total)
+    }
+    
+    func testQuantityOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
+    {
+        TestVM.addItemToCart(newItem: testSoup, quantity: 2)
+        TestVM.addItemToCart(newItem: testSoup, quantity: 2)
+        
+        XCTAssertEqual(4, TestVM.cartItems[0].quantity)
+    }
+    
+    func testTotalCorrectAfterFifthCanOfSoupAddedToCartWithFourCansWithFiftyCentsOffLimitFour()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.discount?.limit = 4
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(newItem: testSoup, quantity: 4)
+        
+        TestVM.addItemToCart(newItem: testSoup, quantity: 1)
+        
+        XCTAssertEqual(8.0, TestVM.total)
     }
 
     func testPerformanceExample() {
