@@ -20,7 +20,7 @@ class ItemDiscount
     var type: DiscountType
     var amount: Double
     var minimum : Int
-    var limit: Int?
+    var limit: Double?
     var specialPrice: Double
     var description = "None"
 
