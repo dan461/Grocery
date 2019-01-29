@@ -24,6 +24,10 @@ class CartItem: GroceryItem, NSCopying
             copy.weight = copyWeight
         }
         
+        if let copyAmount = amount {
+            copy.amount = copyAmount
+        }
+        
         return copy
     }
     
@@ -31,6 +35,7 @@ class CartItem: GroceryItem, NSCopying
     var itemPrice: Double = 0.0
     var itemType: ItemType
     
+    var amount: Double?
     var quantity: Int?
     var weight: Double?
     var discount: ItemDiscount?
