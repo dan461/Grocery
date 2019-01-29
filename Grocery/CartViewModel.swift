@@ -29,33 +29,38 @@ class CartViewModel
         invArray = [sharedInv.soup, sharedInv.bread, sharedInv.oatmeal, sharedInv.apples, sharedInv.bananas, sharedInv.steak, sharedInv.chicken]
     }
     
-    public func addItemToCart(newItem: CartItem, quantity: Int = 0, weight: Double = 0.0)
+    public func addItemToCart(newItem: CartItem, amount: Double = 0, quantity: Int = 0, weight: Double = 0.0)
     {
         let newQty = quantity == 0 ? 0 : quantity
         let newWeight = weight == 0.0 ? 0.0 : weight
         
-        
+        var previousAmount = 0.0
         if let currentItem = itemCurrentlyInCart(newItem: newItem)
         {
-            if currentItem.itemType == .SoldPerUnit {
-                if var totalQty = currentItem.quantity{
-                     totalQty += newQty
-                    currentItem.quantity = totalQty
-                }
-            } else {
-                if var totalWeight = currentItem.weight {
-                    totalWeight += newWeight
-                    currentItem.weight = totalWeight
-                }
+            if let currentAmount = currentItem.amount {
+                previousAmount = currentAmount
+                currentItem.amount = currentAmount + amount
+                
             }
+//            if currentItem.itemType == .SoldPerUnit {
+//                if var totalQty = currentItem.quantity{
+//                     totalQty += newQty
+//                    currentItem.quantity = totalQty
+//                }
+//            } else {
+//                if var totalWeight = currentItem.weight {
+//                    totalWeight += newWeight
+//                    currentItem.weight = totalWeight
+//                }
+//            }
         } else {
-            let cartItem = createCopyForItemsArray(newItem: newItem, quantity: newQty, weight: newWeight)
+            let cartItem = createCopyForItemsArray(newItem: newItem, amount: amount)
             cartItems.append(cartItem)
-            total += findCostOfNewItem(newItem: cartItem)
+            total += findCostOfNewItem(newItem: cartItem, previousAmount: previousAmount)
         }
         
         
-        total += findCostOfNewItem(newItem: newItem)
+//        total += findCostOfNewItem(newItem: cartItem, previousAmount: previousAmount)
     }
     
     // reurns an item if it is already in the cart
@@ -70,27 +75,22 @@ class CartViewModel
     }
     
     
-    private func createCopyForItemsArray(newItem: CartItem, quantity: Int = 0, weight: Double = 0.0) -> CartItem
+    private func createCopyForItemsArray(newItem: CartItem, amount: Double = 0, quantity: Int = 0, weight: Double = 0.0) -> CartItem
     {
         let cartItem = newItem.copy() as! CartItem
-        if newItem.itemType == .SoldPerUnit{
-            cartItem.quantity = quantity
-        }
-        else if newItem.itemType == .SoldByWeight
-        {
-            cartItem.weight = weight
-        }
+        
+        cartItem.amount = amount
         
         return cartItem
     }
     
     
-    private func findCostOfNewItem(newItem: CartItem) -> Double
+    private func findCostOfNewItem(newItem: CartItem, previousAmount: Double) -> Double
     {
         var itemCost = 0.0
         if let discount = newItem.discount
         {
-            itemCost = costOfDiscountedItem(newItem: newItem, discount: discount)
+            itemCost = costOfDiscountedItem(newItem: newItem, previousAmount: previousAmount, discount: discount)
         } else {
             itemCost = costofRegularPriceItem(newItem: newItem)
         }
@@ -98,52 +98,55 @@ class CartViewModel
         return itemCost
     }
     
-    private func costOfDiscountedItem(newItem: CartItem, discount: ItemDiscount) -> Double
+    private func costOfDiscountedItem(newItem: CartItem, previousAmount: Double, discount: ItemDiscount) -> Double
     {
         var cost = 0.0
         
         if discount.type == .markdown
         {
-            cost = costOfMarkedDownItem(newItem: newItem, discount: discount)
+            cost = costOfMarkedDownItem(newItem: newItem, previousAmount: previousAmount, discount: discount)
         }
         
         return cost
     }
     
-    private func costOfMarkedDownItem(newItem: CartItem, discount: ItemDiscount) -> Double
+    private func costOfMarkedDownItem(newItem: CartItem, previousAmount: Double, discount: ItemDiscount) -> Double
     {
         var cost = 0.0
         // if there's a limit we need to know total number in cart already
-        let currentQty = itemCurrentlyInCart(newItem: newItem)?.quantity ?? 0
+//        let currentQty = itemCurrentlyInCart(newItem: newItem)?.quantity ?? 0
         
         if let limit = discount.limit
         {
-            if newItem.itemType == .SoldPerUnit
-            {
-                if let additionalQty = newItem.quantity
+//            if newItem.itemType == .SoldPerUnit
+//            {
+            
+                if let additionalAmount = newItem.amount
                 {
-                    if currentQty + additionalQty <= limit
+                    let newTotalAmount = previousAmount + additionalAmount
+                    
+                    if newTotalAmount <= limit
                     {
                         // still under limit
-                        cost = (newItem.itemPrice - discount.amount) * Double(additionalQty)
+                        cost = (newItem.itemPrice - discount.amount) * additionalAmount
                     }
-                    else if currentQty + additionalQty > limit
+                    else if newTotalAmount > limit
                     {
                         // new items put us over the limit. add the total of discounted and regular price items
-                        let regPricedItems = (currentQty + additionalQty) - limit
-                        cost = ((newItem.itemPrice - discount.amount) * Double(additionalQty - regPricedItems)) + (newItem.itemPrice * Double(regPricedItems))
+                        let regPricedAmount = (newTotalAmount) - limit
+                        cost = ((newItem.itemPrice - discount.amount) * (additionalAmount - regPricedAmount)) + (newItem.itemPrice * regPricedAmount)
                     }
-                    else if currentQty > limit
+                    else if previousAmount > limit
                     {
                         // over the limit, no discount
-                        cost = newItem.itemPrice * Double(additionalQty)
+                        cost = newItem.itemPrice * Double(additionalAmount)
                     }
                 }
-            }
+//            }
         }
         else // no limit
         {
-           cost = (newItem.itemPrice - discount.amount) * Double(newItem.quantity ?? 0)
+            cost = (newItem.itemPrice - discount.amount) * (newItem.amount ?? 0)
         }
         
         return cost
@@ -151,20 +154,6 @@ class CartViewModel
     
     private func costofRegularPriceItem(newItem: CartItem) -> Double
     {
-        var cost = 0.0
-        if newItem.itemType == .SoldPerUnit
-        {
-            if let qty = newItem.quantity{
-                cost = (newItem.itemPrice * Double(qty))
-            }
-        }
-        else if newItem.itemType == .SoldByWeight
-        {
-            if let weight = newItem.weight {
-                cost = (newItem.itemPrice * weight)
-            }
-        }
-        
-        return cost
+        return newItem.itemPrice * (newItem.amount ?? 0)
     }
 }
