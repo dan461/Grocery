@@ -86,34 +86,34 @@ class CartViewModelTests: XCTestCase {
 
         XCTAssertEqual(8.0, TestVM.total)
     }
-//
-//    func testQuantityOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
-//    {
-//        TestVM.addItemToCart(newItem: testSoup, quantity: 2)
-//        TestVM.addItemToCart(newItem: testSoup, quantity: 2)
-//
-//        XCTAssertEqual(4, TestVM.cartItems[0].quantity)
-//    }
-//
-//    func testWeightOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
-//    {
-//        TestVM.addItemToCart(newItem: testApples, weight: 2.0)
-//        TestVM.addItemToCart(newItem: testApples, weight: 2.0)
-//
-//        XCTAssertEqual(4, TestVM.cartItems[0].weight)
-//    }
-//
-//    func testTotalCorrectAfterFifthCanOfSoupAddedToCartWithFourCansWithFiftyCentsOffLimitFour()
-//    {
-//        testSoup.discount = fiftyCentMarkdown
-//        testSoup.discount?.limit = 4
-//        testSoup.itemPrice = 2.0
-//        TestVM.addItemToCart(newItem: testSoup, quantity: 4)
-//
-//        TestVM.addItemToCart(newItem: testSoup, quantity: 1)
-//
-//        XCTAssertEqual(8.0, TestVM.total)
-//    }
+
+    func testAmountOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
+    {
+        TestVM.addItemToCart(newItem: testSoup, amount: 2)
+        TestVM.addItemToCart(newItem: testSoup, amount: 2)
+
+        XCTAssertEqual(4, TestVM.cartItems[0].amount)
+    }
+
+    func testAmountOfAWeighedItemInCartIsCorrectAfterAddingAdditionalItems()
+    {
+        TestVM.addItemToCart(newItem: testApples, amount: 2.0)
+        TestVM.addItemToCart(newItem: testApples, amount: 2.0)
+
+        XCTAssertEqual(4, TestVM.cartItems[0].amount)
+    }
+
+    func testTotalCorrectAfterFifthCanOfSoupAddedToCartWithFourCansWithFiftyCentsOffLimitFour()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.discount?.limit = 4
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(newItem: testSoup, amount: 4)
+
+        TestVM.addItemToCart(newItem: testSoup, amount: 1)
+
+        XCTAssertEqual(8.0, TestVM.total)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
