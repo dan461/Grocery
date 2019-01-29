@@ -31,9 +31,6 @@ class CartViewModel
     
     public func addItemToCart(newItem: CartItem, amount: Double = 0, quantity: Int = 0, weight: Double = 0.0)
     {
-        let newQty = quantity == 0 ? 0 : quantity
-        let newWeight = weight == 0.0 ? 0.0 : weight
-        
         var previousAmount = 0.0
         if let currentItem = itemCurrentlyInCart(newItem: newItem)
         {
@@ -42,25 +39,14 @@ class CartViewModel
                 currentItem.amount = currentAmount + amount
                 
             }
-//            if currentItem.itemType == .SoldPerUnit {
-//                if var totalQty = currentItem.quantity{
-//                     totalQty += newQty
-//                    currentItem.quantity = totalQty
-//                }
-//            } else {
-//                if var totalWeight = currentItem.weight {
-//                    totalWeight += newWeight
-//                    currentItem.weight = totalWeight
-//                }
-//            }
+            newItem.amount = amount
+            total += findCostOfNewItem(newItem: newItem, previousAmount: previousAmount)
+
         } else {
             let cartItem = createCopyForItemsArray(newItem: newItem, amount: amount)
             cartItems.append(cartItem)
             total += findCostOfNewItem(newItem: cartItem, previousAmount: previousAmount)
         }
-        
-        
-//        total += findCostOfNewItem(newItem: cartItem, previousAmount: previousAmount)
     }
     
     // reurns an item if it is already in the cart
@@ -118,10 +104,7 @@ class CartViewModel
         
         if let limit = discount.limit
         {
-//            if newItem.itemType == .SoldPerUnit
-//            {
-            
-                if let additionalAmount = newItem.amount
+            if let additionalAmount = newItem.amount
                 {
                     let newTotalAmount = previousAmount + additionalAmount
                     
@@ -142,7 +125,6 @@ class CartViewModel
                         cost = newItem.itemPrice * Double(additionalAmount)
                     }
                 }
-//            }
         }
         else // no limit
         {
