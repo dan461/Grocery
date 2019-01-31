@@ -35,6 +35,7 @@
 		E0A7A2632202780F000711B0 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7A2612202780F000711B0 /* InventoryItem.swift */; };
 		E0A7A26522028F44000711B0 /* InventoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7A26422028F44000711B0 /* InventoryCellTableViewCell.swift */; };
 		E0A7A26622028F44000711B0 /* InventoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7A26422028F44000711B0 /* InventoryCellTableViewCell.swift */; };
+		E0A7A268220361EA000711B0 /* CartItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7A267220361EA000711B0 /* CartItemTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
 		E0A7A2612202780F000711B0 /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		E0A7A26422028F44000711B0 /* InventoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCellTableViewCell.swift; sourceTree = "<group>"; };
+		E0A7A267220361EA000711B0 /* CartItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */,
 				E051822B21F6AE6300BB9D38 /* Info.plist */,
 				E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */,
+				E0A7A267220361EA000711B0 /* CartItemTests.swift */,
 			);
 			path = GroceryTests;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				E051826021F90D3F00BB9D38 /* InventoryViewModelTests.swift in Sources */,
 				E051825321F6B39200BB9D38 /* CartViewModel.swift in Sources */,
 				E051824421F6AE9E00BB9D38 /* GroceryItem.swift in Sources */,
+				E0A7A268220361EA000711B0 /* CartItemTests.swift in Sources */,
 				E051824D21F6B22F00BB9D38 /* InventoryViewController.swift in Sources */,
 				E051822A21F6AE6300BB9D38 /* GroceryTests.swift in Sources */,
 				E051824721F6B0B600BB9D38 /* ItemDiscount.swift in Sources */,

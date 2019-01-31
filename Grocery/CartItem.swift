@@ -24,4 +24,39 @@ class CartItem: GroceryItem
         itemType = type
         itemAmount = amount
     }
+    
+    public func specialApplies(amount: Double, discount: ItemDiscount) -> Bool
+    {
+        if let limit = discount.limit {
+            if amount > limit && limit != 0 {
+                return false
+            }
+        }
+        
+        return Int(amount) % discount.minimum == 0 && discount.minimum > 1
+    }
+    
+//    public func findPriceWithSpecial(amount: Double, discount: ItemDiscount) -> Double
+//    {
+//        var price = itemPrice
+//
+//        return price
+//    }
+    
+    public func applySpecial(special: ItemDiscount, amount: Double) -> Double
+    {
+        var priceWithSpecial = itemPrice
+        
+        if specialApplies(amount: amount, discount: special)
+        {
+            // 3 for $5 type discount
+            if (special.amount == 0 && special.specialPrice > 0.0){
+                priceWithSpecial = (itemPrice * amount) - special.specialPrice
+            } else { // buy one get one free, buy 3 get one half off, etc
+                priceWithSpecial = itemPrice - (itemPrice * special.amount)
+            }
+        }
+        
+        return priceWithSpecial
+    }
 }
