@@ -31,6 +31,21 @@ class CartItemTests: XCTestCase {
         TestItem.discount = bogoDiscount
         XCTAssertEqual(0.0, TestItem.applySpecial(special: bogoDiscount, amount: 2.0))
     }
+    
+    func testSpecialDoesNotApplyForOddNumberedItemsWithBuyOneGetOneFreeDiscount()
+    {
+        TestItem.discount = bogoDiscount
+        XCTAssertEqual(10.0, TestItem.applySpecial(special: bogoDiscount, amount: 1.0))
+        XCTAssertEqual(10.0, TestItem.applySpecial(special: bogoDiscount, amount: 3.0))
+        XCTAssertEqual(10.0, TestItem.applySpecial(special: bogoDiscount, amount: 5.0))
+    }
+    
+    func testSpecialDoesNotApplyForFourthItemInBOGOwithLimitOfTwo()
+    {
+        TestItem.discount = bogoDiscount
+        TestItem.discount?.limit = 2
+        XCTAssertEqual(10.0, TestItem.applySpecial(special: bogoDiscount, amount: 4.0))
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

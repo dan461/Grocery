@@ -36,13 +36,6 @@ class CartItem: GroceryItem
         return Int(amount) % discount.minimum == 0 && discount.minimum > 1
     }
     
-//    public func findPriceWithSpecial(amount: Double, discount: ItemDiscount) -> Double
-//    {
-//        var price = itemPrice
-//
-//        return price
-//    }
-    
     public func applySpecial(special: ItemDiscount, amount: Double) -> Double
     {
         var priceWithSpecial = itemPrice
