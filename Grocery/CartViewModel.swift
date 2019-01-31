@@ -32,6 +32,9 @@ class CartViewModel
     public func addItemToCart(invItem: InventoryItem, amount: Double)
     {
         let newItem = CartItem(name: invItem.itemName, price: invItem.itemPrice, type: invItem.itemType, amount: amount)
+        if let discount = invItem.discount{
+            newItem.discount = discount
+        }
         
         var previousAmount = 0.0
         if let currentItem = itemCurrentlyInCart(newItem: newItem)
