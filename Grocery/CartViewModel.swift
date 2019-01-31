@@ -36,10 +36,8 @@ class CartViewModel
             newItem.discount = discount
         }
         
-//        var previousAmount = 0.0
         if let currentItem = itemCurrentlyInCart(newItem: newItem)
         {
-//            previousAmount = currentItem.itemAmount
             currentItem.itemAmount += amount
             total += findCostOfNewItem(newItem: newItem, previousAmount: previousAmount)
 
@@ -54,8 +52,11 @@ class CartViewModel
         let removedItem = createCartItem(invItem: invItem, amount: amount)
         if let currentItem = itemCurrentlyInCart(newItem: removedItem)
         {
+            // can't remove more than is in cart
+            guard currentItem.itemAmount >= amount else { return }
             currentItem.itemAmount -= amount
             total -= findCostOfNewItem(newItem: removedItem, previousAmount: currentItem.itemAmount)
+            
         }
     }
     

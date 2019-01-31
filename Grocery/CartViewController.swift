@@ -25,7 +25,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var formatter = NumberFormatter()
     var selectedAmount = 0.0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +37,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         addButton.isEnabled = false
         removeButton.isEnabled = false
         stepper.stepValue = 1
+        stepper.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         quantityLabel.text = String(sender.value)
         selectedAmount = sender.value
         addButton.isEnabled = sender.value > 0
-        removeButton.isEnabled = sender.value > 0
     }
     
     @IBAction func scanItem(_ sender: Any)
@@ -67,9 +66,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func removeItem(_ sender: Any)
     {
-        
-        
-        totalLabel.text = String(format: "$%.2f", viewModel.total)
+        if let item = viewModel.selectedItem{
+            viewModel.removeItemFromCart(invItem: item, amount: selectedAmount)
+            totalLabel.text = String(format: "$%.2f", viewModel.total)
+            qtyInCartLabel.text = String(viewModel.findAmountInCart(invItem: item))
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +95,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let item = viewModel.selectedItem {
             
             qtyInCartLabel.text = String(viewModel.findAmountInCart(invItem: item))
+            stepper.isEnabled = true
             stepper.value = 0
             selectedAmount = 0
             quantityLabel.text = "0"
