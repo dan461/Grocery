@@ -115,6 +115,9 @@ class CartViewModelTests: XCTestCase {
         XCTAssertEqual(8.0, TestVM.total)
     }
 
+    
+    // MARK: Removing Items
+    
     func testAmountOfItemInCartIsCorrectAfterRemovingOneItem()
     {
         TestVM.addItemToCart(invItem: testSoup, amount: 2)
@@ -128,6 +131,35 @@ class CartViewModelTests: XCTestCase {
         TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
         
         XCTAssertEqual(1, TestVM.total)
+    }
+    
+    func testTotalIsCorrectAfterRemovingOneItemWithFiftyCentsOff() {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 2)
+        TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
+        
+        XCTAssertEqual(1.5, TestVM.total)
+    }
+    
+    func testAmountOfAWeighedItemInCartIsCorrectAfterRemovingOnePound()
+    {
+        TestVM.addItemToCart(invItem: testApples, amount: 3.0)
+        TestVM.removeItemFromCart(invItem: testApples, amount: 1.0)
+        
+        XCTAssertEqual(2, TestVM.cartItems[0].itemAmount)
+    }
+    
+    func testTotalIsCorrectAfterRemovingFifthItemWithFiftyCentsOffLimitFour()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.discount?.limit = 4
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 5)
+        
+        TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
+        
+        XCTAssertEqual(6.0, TestVM.total)
     }
 
     func testPerformanceExample() {
