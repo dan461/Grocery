@@ -11,11 +11,9 @@ import Foundation
 class InventoryItem: GroceryItem
 {
     var itemName: String
-    
     var itemPrice: Double
-    
     var itemType: ItemType
-    
+    var discount: ItemDiscount?
     
     
     init(name: String, price: Double, type: ItemType)
