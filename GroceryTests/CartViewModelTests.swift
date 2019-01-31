@@ -25,6 +25,7 @@ class CartViewModelTests: XCTestCase {
         testApples = TestVM.invArray[3]
         testChicken = TestVM.invArray[6]
         
+        testSoup.itemPrice = 1.00
         testSoup.discount = nil
         
     }

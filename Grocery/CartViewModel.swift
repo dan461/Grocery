@@ -15,7 +15,7 @@ class CartViewModel
     var invArray: [InventoryItem] = []
     
     var total: Double = 0.0
-    
+    var previousAmount: Double = 0.0
     var cartItems: [CartItem]
     
     init()
@@ -36,10 +36,10 @@ class CartViewModel
             newItem.discount = discount
         }
         
-        var previousAmount = 0.0
+//        var previousAmount = 0.0
         if let currentItem = itemCurrentlyInCart(newItem: newItem)
         {
-            previousAmount = currentItem.itemAmount
+//            previousAmount = currentItem.itemAmount
             currentItem.itemAmount += amount
             total += findCostOfNewItem(newItem: newItem, previousAmount: previousAmount)
 
@@ -75,9 +75,20 @@ class CartViewModel
         var currentItem: CartItem? = nil
         if let index = cartItems.firstIndex(where: {($0).itemName == newItem.itemName}){
             currentItem = cartItems[index]
+            previousAmount = currentItem?.itemAmount ?? 0
         }
         
         return currentItem
+    }
+    
+    public func findAmountInCart(invItem: InventoryItem) -> Double
+    {
+        var amount = 0.0
+        if let index = cartItems.firstIndex(where: {($0).itemName == invItem.itemName}){
+           amount = cartItems[index].itemAmount
+        }
+        
+        return amount
     }
     
     private func findCostOfNewItem(newItem: CartItem, previousAmount: Double) -> Double

@@ -18,17 +18,20 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var removeButton: UIButton!
+    @IBOutlet weak var qtyInCartLabel: UILabel!
     
     
     var viewModel = CartViewModel()
     var formatter = NumberFormatter()
     var selectedAmount = 0.0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nameLabel.text = ""
         quantityLabel.text = "0"
+        qtyInCartLabel.text = "0"
         totalLabel.text = "$0.00"
         title = "Cart"
         formatter.numberStyle = .currency
@@ -56,6 +59,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let item = viewModel.selectedItem{
             viewModel.addItemToCart(invItem: item, amount: selectedAmount)
             totalLabel.text = String(format: "$%.2f", viewModel.total)
+            qtyInCartLabel.text = String(viewModel.findAmountInCart(invItem: item))
+            
         }
        
     }
@@ -86,6 +91,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         selectedAmount = 0
         viewModel.selectedItem = viewModel.invArray[indexPath.row]
         if let item = viewModel.selectedItem {
+            
+            qtyInCartLabel.text = String(viewModel.findAmountInCart(invItem: item))
+            stepper.value = 0
+            selectedAmount = 0
+            quantityLabel.text = "0"
             
             if item.itemType == .SoldByWeight {
                 stepper.stepValue = 0.25
