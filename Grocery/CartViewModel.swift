@@ -72,15 +72,6 @@ class CartViewModel
         return currentItem
     }
     
-//    private func createCopyForItemsArray(newItem: CartItem, amount: Double = 0, quantity: Int = 0, weight: Double = 0.0) -> CartItem
-//    {
-//        let cartItem = newItem.copy() as! CartItem
-//
-//        cartItem.amount = amount
-//
-//        return cartItem
-//    }
-    
     private func findCostOfNewItem(newItem: CartItem, previousAmount: Double) -> Double
     {
         var itemCost = 0.0
@@ -123,27 +114,24 @@ class CartViewModel
         
         if let limit = discount.limit
         {
-//            if let additionalAmount = newItem.itemAmount
-//                {
-                    let newTotalAmount = previousAmount + newItem.itemAmount
-                    
-                    if newTotalAmount <= limit
-                    {
-                        // still under limit
-                        cost = (newItem.itemPrice - discount.amount) * newItem.itemAmount
-                    }
-                    else if newTotalAmount > limit
-                    {
-                        // new items put us over the limit. add the total of discounted and regular price items
-                        let regPricedAmount = (newTotalAmount) - limit
-                        cost = ((newItem.itemPrice - discount.amount) * (newItem.itemAmount - regPricedAmount)) + (newItem.itemPrice * regPricedAmount)
-                    }
-                    else if previousAmount > limit
-                    {
-                        // over the limit, no discount
-                        cost = newItem.itemPrice * Double(newItem.itemAmount)
-                    }
-//                }
+            let newTotalAmount = previousAmount + newItem.itemAmount
+            
+            if newTotalAmount <= limit
+            {
+                // still under limit
+                cost = (newItem.itemPrice - discount.amount) * newItem.itemAmount
+            }
+            else if newTotalAmount > limit
+            {
+                // new items put us over the limit. add the total of discounted and regular price items
+                let regPricedAmount = (newTotalAmount) - limit
+                cost = ((newItem.itemPrice - discount.amount) * (newItem.itemAmount - regPricedAmount)) + (newItem.itemPrice * regPricedAmount)
+            }
+            else if previousAmount > limit
+            {
+                // over the limit, no discount
+                cost = newItem.itemPrice * Double(newItem.itemAmount)
+            }
         }
         else // no limit
         {
