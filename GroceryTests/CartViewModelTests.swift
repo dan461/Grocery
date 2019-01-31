@@ -122,6 +122,13 @@ class CartViewModelTests: XCTestCase {
 
         XCTAssertEqual(1, TestVM.cartItems[0].itemAmount)
     }
+    
+    func testTotalIsCorrectAfterRemovingOneItem() {
+        TestVM.addItemToCart(invItem: testSoup, amount: 2)
+        TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
+        
+        XCTAssertEqual(1, TestVM.total)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
