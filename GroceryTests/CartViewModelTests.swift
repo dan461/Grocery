@@ -75,49 +75,49 @@ class CartViewModelTests: XCTestCase {
 
         XCTAssertEqual(3.0, TestVM.total)
     }
-//
-//    func testTotalIsCorrectWithFiveCansOfSoupWithFiftyCentsOffLimitFour()
-//    {
-//        testSoup.discount = fiftyCentMarkdown
-//        testSoup.discount?.limit = 4
-//        testSoup.itemPrice = 2.0
-//
-//        TestVM.addItemToCart(newItem: testSoup, amount: 5)
-//
-//        XCTAssertEqual(8.0, TestVM.total)
-//    }
-//
-//    func testAmountOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
-//    {
-//        TestVM.addItemToCart(newItem: testSoup, amount: 2)
-//        TestVM.addItemToCart(newItem: testSoup, amount: 2)
-//
-//        XCTAssertEqual(4, TestVM.cartItems[0].amount)
-//    }
-//
-//    func testAmountOfAWeighedItemInCartIsCorrectAfterAddingAdditionalItems()
-//    {
-//        TestVM.addItemToCart(newItem: testApples, amount: 2.0)
-//        TestVM.addItemToCart(newItem: testApples, amount: 2.0)
-//
-//        XCTAssertEqual(4, TestVM.cartItems[0].amount)
-//    }
-//
-//    func testTotalCorrectAfterFifthCanOfSoupAddedToCartWithFourCansWithFiftyCentsOffLimitFour()
-//    {
-//        testSoup.discount = fiftyCentMarkdown
-//        testSoup.discount?.limit = 4
-//        testSoup.itemPrice = 2.0
-//        TestVM.addItemToCart(newItem: testSoup, amount: 4)
-//
-//        TestVM.addItemToCart(newItem: testSoup, amount: 1)
-//
-//        XCTAssertEqual(8.0, TestVM.total)
-//    }
+
+    func testTotalIsCorrectWithFiveCansOfSoupWithFiftyCentsOffLimitFour()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.discount?.limit = 4
+        testSoup.itemPrice = 2.0
+
+        TestVM.addItemToCart(invItem: testSoup, amount: 5)
+
+        XCTAssertEqual(8.0, TestVM.total)
+    }
+
+    func testAmountOfAnItemInCartIsCorrectAfterAddingAdditionalItems()
+    {
+        TestVM.addItemToCart(invItem: testSoup, amount: 2)
+        TestVM.addItemToCart(invItem: testSoup, amount: 2)
+
+        XCTAssertEqual(4, TestVM.cartItems[0].itemAmount)
+    }
+
+    func testAmountOfAWeighedItemInCartIsCorrectAfterAddingAdditionalItems()
+    {
+        TestVM.addItemToCart(invItem: testApples, amount: 2.0)
+        TestVM.addItemToCart(invItem: testApples, amount: 2.0)
+
+        XCTAssertEqual(4, TestVM.cartItems[0].itemAmount)
+    }
+
+    func testTotalCorrectAfterFifthCanOfSoupAddedToCartWithFourCansWithFiftyCentsOffLimitFour()
+    {
+        testSoup.discount = fiftyCentMarkdown
+        testSoup.discount?.limit = 4
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 4)
+
+        TestVM.addItemToCart(invItem: testSoup, amount: 1)
+
+        XCTAssertEqual(8.0, TestVM.total)
+    }
 //
 //    func testAmountOfItemInCartIsCorrectAfterRemovingOneItem()
 //    {
-//        TestVM.addItemToCart(newItem: testSoup, amount: 2)
+//        TestVM.addItemToCart(invItem: testSoup, amount: 2)
 //        TestVM.removeItemFromCart(removedItem: testSoup, amount: 1)
 //
 //        XCTAssertEqual(1, TestVM.cartItems[0].amount)
