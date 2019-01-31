@@ -145,6 +145,8 @@ class CartViewModelTests: XCTestCase {
         
         XCTAssertEqual(6.0, TestVM.total)
     }
+    
+    
 
     
     // MARK: Removing Items
@@ -191,6 +193,27 @@ class CartViewModelTests: XCTestCase {
         TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
         
         XCTAssertEqual(6.0, TestVM.total)
+    }
+    
+    func testTotalCorrectAfterRemovingOneCanOfSoupWithBOGOdiscount()
+    {
+        testSoup.discount = bogoDiscount
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 2)
+        TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
+        
+        XCTAssertEqual(2.0, TestVM.total)
+    }
+    
+    func testTotalCorrectAfterRemovingOneCanOfSoupWithBOGOdiscountLimit2()
+    {
+        testSoup.discount = bogoDiscount
+        testSoup.discount?.limit = 2
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 4)
+        TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
+        
+        XCTAssertEqual(4.0, TestVM.total)
     }
 
     func testPerformanceExample() {
