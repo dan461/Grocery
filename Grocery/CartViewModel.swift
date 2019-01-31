@@ -31,7 +31,7 @@ class CartViewModel
     
     public func addItemToCart(invItem: InventoryItem, amount: Double)
     {
-        let newItem = CartItem(name: invItem.itemName, price: invItem.itemPrice, type: invItem.itemType, amount: amount)
+        let newItem = createCartItem(invItem: invItem, amount: amount)
         if let discount = invItem.discount{
             newItem.discount = discount
         }
@@ -49,16 +49,24 @@ class CartViewModel
         }
     }
     
-    public func removeItemFromCart(removedItem: CartItem, amount: Double)
+    public func removeItemFromCart(invItem: InventoryItem, amount: Double)
     {
-//        if let currentItem = itemCurrentlyInCart(newItem: removedItem)
-//        {
-////            if let currentAmount = currentItem.amount  {
-//                currentItem.itemAmount -= amount
-////            }
-//            removedItem.itemAmount = amount
-//            total -= findCostOfNewItem(newItem: removedItem, previousAmount: currentItem.amount ?? 0)
-//        }
+        let removedItem = createCartItem(invItem: invItem, amount: amount)
+        if let currentItem = itemCurrentlyInCart(newItem: removedItem)
+        {
+            currentItem.itemAmount -= amount
+            total -= findCostOfNewItem(newItem: removedItem, previousAmount: currentItem.itemAmount)
+        }
+    }
+    
+    private func createCartItem(invItem: InventoryItem, amount: Double) -> CartItem
+    {
+        let newItem = CartItem(name: invItem.itemName, price: invItem.itemPrice, type: invItem.itemType, amount: amount)
+        if let discount = invItem.discount{
+            newItem.discount = discount
+        }
+        
+        return newItem
     }
     
     // reurns an item if it is already in the cart
