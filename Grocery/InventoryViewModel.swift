@@ -56,6 +56,12 @@ class InventoryViewModel
         fiftyCentMarkdown.description = "50¢ off"
         soldByUnitDiscountArray.append(fiftyCentMarkdown)
         soldByWeightDiscountArray.append(fiftyCentMarkdown)
+        
+        let fiftyCentMarkdownLimitFour = ItemDiscount(discountType: .markdown, discountAmount: 0.5)
+        fiftyCentMarkdownLimitFour.limit = 4
+        fiftyCentMarkdownLimitFour.description = "50¢ off, limit 4"
+        soldByUnitDiscountArray.append(fiftyCentMarkdownLimitFour)
+        soldByWeightDiscountArray.append(fiftyCentMarkdownLimitFour)
     }
     
     func applyPrice(price: Double)
