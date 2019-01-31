@@ -15,15 +15,7 @@ class CartItem: GroceryItem, NSCopying
         if let copyDiscount = discount{
             copy.discount = copyDiscount
         }
-        
-//        if let copyQty = quantity{
-//            copy.quantity = copyQty
-//        }
-//        
-//        if let copyWeight = weight {
-//            copy.weight = copyWeight
-//        }
-        
+
         if let copyAmount = amount {
             copy.amount = copyAmount
         }
@@ -36,8 +28,6 @@ class CartItem: GroceryItem, NSCopying
     var itemType: ItemType
     
     var amount: Double?
-//    var quantity: Int?
-//    var weight: Double?
     var discount: ItemDiscount?
     
     init(name: String, price: Double, type: ItemType)
