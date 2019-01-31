@@ -29,7 +29,7 @@ class CartViewModel
         invArray = [sharedInv.soup, sharedInv.bread, sharedInv.oatmeal, sharedInv.apples, sharedInv.bananas, sharedInv.steak, sharedInv.chicken]
     }
     
-    public func addItemToCart(newItem: CartItem, amount: Double = 0, quantity: Int = 0, weight: Double = 0.0)
+    public func addItemToCart(newItem: CartItem, amount: Double = 0)
     {
         var previousAmount = 0.0
         if let currentItem = itemCurrentlyInCart(newItem: newItem)
@@ -49,6 +49,18 @@ class CartViewModel
         }
     }
     
+    public func removeItemFromCart(removedItem: CartItem, amount: Double)
+    {
+        if let currentItem = itemCurrentlyInCart(newItem: removedItem)
+        {
+            if let currentAmount = currentItem.amount  {
+                currentItem.amount = currentAmount - amount
+            }
+            removedItem.amount = amount
+            total -= findCostOfNewItem(newItem: removedItem, previousAmount: currentItem.amount ?? 0)
+        }
+    }
+    
     // reurns an item if it is already in the cart
     private func itemCurrentlyInCart(newItem: CartItem) -> CartItem?
     {
@@ -60,7 +72,6 @@ class CartViewModel
         return currentItem
     }
     
-    
     private func createCopyForItemsArray(newItem: CartItem, amount: Double = 0, quantity: Int = 0, weight: Double = 0.0) -> CartItem
     {
         let cartItem = newItem.copy() as! CartItem
@@ -69,7 +80,6 @@ class CartViewModel
         
         return cartItem
     }
-    
     
     private func findCostOfNewItem(newItem: CartItem, previousAmount: Double) -> Double
     {
@@ -92,6 +102,17 @@ class CartViewModel
         {
             cost = costOfMarkedDownItem(newItem: newItem, previousAmount: previousAmount, discount: discount)
         }
+        else if discount.type == .special
+        {
+           
+        }
+        
+        return cost
+    }
+    
+    private func costOfItemWithSpecial(newItem: CartItem, previousAmount: Double, discount: ItemDiscount) -> Double
+    {
+        var cost = 0.0
         
         return cost
     }
@@ -99,8 +120,6 @@ class CartViewModel
     private func costOfMarkedDownItem(newItem: CartItem, previousAmount: Double, discount: ItemDiscount) -> Double
     {
         var cost = 0.0
-        // if there's a limit we need to know total number in cart already
-//        let currentQty = itemCurrentlyInCart(newItem: newItem)?.quantity ?? 0
         
         if let limit = discount.limit
         {
