@@ -16,7 +16,7 @@ class InventoryViewModel
     var soldByUnitDiscountArray = [Any]()
     var soldByWeightDiscountArray = [Any]()
     
-    var selectedItem: CartItem?
+    var selectedItem: InventoryItem?
     
     init()
     {
