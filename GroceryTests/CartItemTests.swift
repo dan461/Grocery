@@ -19,7 +19,8 @@ class CartItemTests: XCTestCase {
     var buy3GetOneFiftyPcOffDiscount = ItemDiscount(discountType: .special, discountAmount: 0.5, discountMinimum: 4)
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        TestItem.itemPrice = 10.0
+        bogoDiscount.limit = nil
     }
 
     override func tearDown() {
@@ -45,6 +46,32 @@ class CartItemTests: XCTestCase {
         TestItem.discount = bogoDiscount
         TestItem.discount?.limit = 2
         XCTAssertEqual(10.0, TestItem.applySpecial(special: bogoDiscount, amount: 4.0))
+    }
+    
+    func testSpecialPriceAppliesForThirdItemWithThreeForFiveSpecial()
+    {
+        TestItem.discount = threeForFiveDiscount
+        TestItem.itemPrice = 2.00
+        XCTAssertEqual(1.00, TestItem.applySpecial(special: threeForFiveDiscount, amount: 3.0))
+    }
+    
+    func testSpecialPriceDoesNotApplyForFourthItemWithThreeForFiveSpecial()
+    {
+        TestItem.discount = threeForFiveDiscount
+        TestItem.itemPrice = 2.00
+        XCTAssertEqual(2.00, TestItem.applySpecial(special: threeForFiveDiscount, amount: 4.0))
+    }
+    
+    func testSpecialPriceAppliesToFourthItemWithBuy3Get4thFiftyPercentOff()
+    {
+        TestItem.discount = buy3GetOneFiftyPcOffDiscount
+        XCTAssertEqual(5.00, TestItem.applySpecial(special: buy3GetOneFiftyPcOffDiscount, amount: 4.0))
+    }
+    
+    func testSpecialPriceDoesNotApplyToThirdItemWithBuy3Get4thFiftyPercentOff()
+    {
+        TestItem.discount = buy3GetOneFiftyPcOffDiscount
+        XCTAssertEqual(10.00, TestItem.applySpecial(special: buy3GetOneFiftyPcOffDiscount, amount: 3.0))
     }
 
     func testPerformanceExample() {
