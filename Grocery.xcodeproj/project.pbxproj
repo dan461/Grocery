@@ -31,6 +31,8 @@
 		E051826221F90D6400BB9D38 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826121F90D6400BB9D38 /* Inventory.swift */; };
 		E051826321F90D6400BB9D38 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826121F90D6400BB9D38 /* Inventory.swift */; };
 		E051826721F91E6D00BB9D38 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */; };
+		E0A7A2622202780F000711B0 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7A2612202780F000711B0 /* InventoryItem.swift */; };
+		E0A7A2632202780F000711B0 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7A2612202780F000711B0 /* InventoryItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,7 @@
 		E051825F21F90D3F00BB9D38 /* InventoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModelTests.swift; sourceTree = "<group>"; };
 		E051826121F90D6400BB9D38 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		E051826621F91E6D00BB9D38 /* CartViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
+		E0A7A2612202780F000711B0 /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 				E051824E21F6B36600BB9D38 /* InventoryViewModel.swift */,
 				E051825121F6B39200BB9D38 /* CartViewModel.swift */,
 				E051826121F90D6400BB9D38 /* Inventory.swift */,
+				E0A7A2612202780F000711B0 /* InventoryItem.swift */,
 			);
 			path = Grocery;
 			sourceTree = "<group>";
@@ -296,6 +300,7 @@
 				E051825521F6B3E600BB9D38 /* CartItem.swift in Sources */,
 				E051826221F90D6400BB9D38 /* Inventory.swift in Sources */,
 				E051821321F6AE6200BB9D38 /* AppDelegate.swift in Sources */,
+				E0A7A2622202780F000711B0 /* InventoryItem.swift in Sources */,
 				E051824321F6AE9E00BB9D38 /* GroceryItem.swift in Sources */,
 				E051824F21F6B36600BB9D38 /* InventoryViewModel.swift in Sources */,
 				E051825221F6B39200BB9D38 /* CartViewModel.swift in Sources */,
@@ -310,6 +315,7 @@
 				E051826721F91E6D00BB9D38 /* CartViewModelTests.swift in Sources */,
 				E051824A21F6B21F00BB9D38 /* CartViewController.swift in Sources */,
 				E051825021F6B36600BB9D38 /* InventoryViewModel.swift in Sources */,
+				E0A7A2632202780F000711B0 /* InventoryItem.swift in Sources */,
 				E051826321F90D6400BB9D38 /* Inventory.swift in Sources */,
 				E051825621F6B3E600BB9D38 /* CartItem.swift in Sources */,
 				E051826021F90D3F00BB9D38 /* InventoryViewModelTests.swift in Sources */,

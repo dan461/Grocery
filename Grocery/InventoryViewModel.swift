@@ -11,7 +11,7 @@ import Foundation
 class InventoryViewModel
 {
     var sharedInv = Inventory.shared
-    var invArray: [CartItem] = []
+    var invArray: [InventoryItem] = []
     
     var soldByUnitDiscountArray = [Any]()
     var soldByWeightDiscountArray = [Any]()

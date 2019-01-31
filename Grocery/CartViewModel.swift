@@ -12,7 +12,7 @@ class CartViewModel
 {
     var selectedItem: CartItem?
     var sharedInv = Inventory.shared
-    var invArray: [CartItem] = []
+    var invArray: [InventoryItem] = []
     
     var total: Double = 0.0
     

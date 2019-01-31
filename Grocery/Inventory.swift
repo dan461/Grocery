@@ -12,13 +12,13 @@ class Inventory
 {
     static let shared = Inventory()
     
-    var oatmeal = CartItem(name: "Oatmeal", price: 1.00, type: .SoldPerUnit)
-    var soup = CartItem(name: "Soup", price: 1.00, type: .SoldPerUnit)
-    var bread = CartItem(name: "Bread", price: 1.00, type: .SoldPerUnit)
+    var oatmeal = InventoryItem(name: "Oatmeal", price: 1.00, type: .SoldPerUnit)
+    var soup = InventoryItem(name: "Soup", price: 1.00, type: .SoldPerUnit)
+    var bread = InventoryItem(name: "Bread", price: 1.00, type: .SoldPerUnit)
     
-    var bananas = CartItem(name: "Bananas", price: 1.00, type: .SoldByWeight)
-    var apples = CartItem(name: "Apples", price: 1.00, type: .SoldByWeight)
+    var bananas = InventoryItem(name: "Bananas", price: 1.00, type: .SoldByWeight)
+    var apples = InventoryItem(name: "Apples", price: 1.00, type: .SoldByWeight)
     
-    var steak = CartItem(name: "Steak", price: 1.00, type: .SoldByWeight)
-    var chicken = CartItem(name: "Chicken", price: 1.00, type: .SoldByWeight)
+    var steak = InventoryItem(name: "Steak", price: 1.00, type: .SoldByWeight)
+    var chicken = InventoryItem(name: "Chicken", price: 1.00, type: .SoldByWeight)
 }
