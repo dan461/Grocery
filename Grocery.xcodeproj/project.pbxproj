@@ -131,6 +131,7 @@
 			children = (
 				E051821221F6AE6200BB9D38 /* AppDelegate.swift */,
 				E051824821F6B21F00BB9D38 /* CartViewController.swift */,
+				E051824B21F6B22F00BB9D38 /* InventoryViewController.swift */,
 				E051821821F6AE6200BB9D38 /* Main.storyboard */,
 				E051821B21F6AE6300BB9D38 /* Assets.xcassets */,
 				E051821D21F6AE6300BB9D38 /* LaunchScreen.storyboard */,
@@ -139,7 +140,6 @@
 				E051824221F6AE9E00BB9D38 /* GroceryItem.swift */,
 				E051825421F6B3E600BB9D38 /* CartItem.swift */,
 				E051824521F6B0B600BB9D38 /* ItemDiscount.swift */,
-				E051824B21F6B22F00BB9D38 /* InventoryViewController.swift */,
 				E051824E21F6B36600BB9D38 /* InventoryViewModel.swift */,
 				E051825121F6B39200BB9D38 /* CartViewModel.swift */,
 				E051826121F90D6400BB9D38 /* Inventory.swift */,

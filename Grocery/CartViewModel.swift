@@ -10,7 +10,7 @@ import Foundation
 
 class CartViewModel
 {
-    var selectedItem: CartItem?
+    var selectedItem: InventoryItem?
     var sharedInv = Inventory.shared
     var invArray: [InventoryItem] = []
     
