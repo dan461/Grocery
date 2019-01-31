@@ -17,6 +17,8 @@ class CartViewModelTests: XCTestCase {
     var testChicken = InventoryItem(name: "Chicken", price: 1.00, type: .SoldByWeight)
     var testApples = InventoryItem(name: "Apples", price: 1.00, type: .SoldByWeight)
     var fiftyCentMarkdown = ItemDiscount.init(discountType: .markdown, discountAmount: 0.5)
+    
+    var bogoDiscount = ItemDiscount(discountType: .special, discountAmount: 1.0, discountMinimum: 2)
 
     override func setUp() {
         
@@ -114,6 +116,34 @@ class CartViewModelTests: XCTestCase {
         TestVM.addItemToCart(invItem: testSoup, amount: 1)
 
         XCTAssertEqual(8.0, TestVM.total)
+    }
+    
+    func testTotalCorrectWithTwoCansOfSoupWithBOGOdiscount()
+    {
+        testSoup.discount = bogoDiscount
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 2)
+        
+        XCTAssertEqual(2.0, TestVM.total)
+    }
+    
+    func testTotalCorrectWithThreeCansOfSoupWithBOGOdiscount()
+    {
+        testSoup.discount = bogoDiscount
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 3)
+        
+        XCTAssertEqual(4.0, TestVM.total)
+    }
+    
+    func testTotalCorrectWithFourCansOfSoupWithBOGOdiscountLimitTwo()
+    {
+        testSoup.discount = bogoDiscount
+        testSoup.discount?.limit = 2
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 4)
+        
+        XCTAssertEqual(6.0, TestVM.total)
     }
 
     

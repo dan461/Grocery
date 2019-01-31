@@ -115,7 +115,7 @@ class CartViewModel
         }
         else if discount.type == .special
         {
-           
+            cost = costOfItemWithSpecial(newItem: newItem, previousAmount: previousAmount, discount: discount)
         }
         
         return cost
@@ -124,6 +124,13 @@ class CartViewModel
     private func costOfItemWithSpecial(newItem: CartItem, previousAmount: Double, discount: ItemDiscount) -> Double
     {
         var cost = 0.0
+        
+        let start = Int(previousAmount) + 1
+        let end = Int(previousAmount) + Int(newItem.itemAmount)
+        for amount in start...end
+        {
+            cost += newItem.applySpecial(special: discount, amount: Double(amount))
+        }
         
         return cost
     }
