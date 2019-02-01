@@ -143,6 +143,13 @@ class CartViewModel
         {
             let newTotalAmount = previousAmount + newItem.itemAmount
             
+            if previousAmount > limit
+            {
+                // already over the limit, no discount
+                cost = newItem.itemPrice * Double(newItem.itemAmount)
+                return cost
+            }
+            
             if newTotalAmount <= limit
             {
                 // still under limit
@@ -153,11 +160,6 @@ class CartViewModel
                 // new items put us over the limit. add the total of discounted and regular price items
                 let regPricedAmount = (newTotalAmount) - limit
                 cost = ((newItem.itemPrice - discount.amount) * (newItem.itemAmount - regPricedAmount)) + (newItem.itemPrice * regPricedAmount)
-            }
-            else if previousAmount > limit
-            {
-                // over the limit, no discount
-                cost = newItem.itemPrice * Double(newItem.itemAmount)
             }
         }
         else // no limit
