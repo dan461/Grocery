@@ -19,7 +19,9 @@ class CartViewModelTests: XCTestCase {
     var fiftyCentMarkdown = ItemDiscount.init(discountType: .markdown, discountAmount: 0.5)
     
     var bogoDiscount = ItemDiscount(discountType: .special, discountAmount: 1.0, discountMinimum: 2)
-
+    var threeForFiveDiscount = ItemDiscount(discountType: .special, discountAmount: 0.0, discountMinimum: 3, priceSpecial: 5.0)
+    var buy3GetOneFiftyPcOffDiscount = ItemDiscount(discountType: .special, discountAmount: 0.5, discountMinimum: 4)
+    
     override func setUp() {
         
         testSoup = TestVM.invArray[0]
@@ -146,6 +148,34 @@ class CartViewModelTests: XCTestCase {
         XCTAssertEqual(6.0, TestVM.total)
     }
     
+    func testTotalCorrectWithThreeCansOfSoupWithThreeForFiveDiscount()
+    {
+        testSoup.discount = threeForFiveDiscount
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 3.0)
+        
+        XCTAssertEqual(5.0, TestVM.total)
+    }
+    
+    func testTotalCorrectWithFourCansOfSoupWithThreeForFiveDiscount()
+    {
+        testSoup.discount = threeForFiveDiscount
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 4.0)
+        
+        XCTAssertEqual(7.0, TestVM.total)
+    }
+    
+    func testTotalCorrectWithSixCansOfSoupWithThreeForFiveDiscountLimitThree()
+    {
+        testSoup.discount = threeForFiveDiscount
+        testSoup.discount?.limit = 3
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 6.0)
+        
+        XCTAssertEqual(11.0, TestVM.total)
+    }
+    
     
 
     
@@ -214,6 +244,16 @@ class CartViewModelTests: XCTestCase {
         TestVM.removeItemFromCart(invItem: testSoup, amount: 1)
         
         XCTAssertEqual(4.0, TestVM.total)
+    }
+    
+    func testTotalCorrectAfterRemovingFourthItemWithBuy3Get4thFiftyPercentOff()
+    {
+        testSoup.discount = buy3GetOneFiftyPcOffDiscount
+        testSoup.itemPrice = 2.0
+        TestVM.addItemToCart(invItem: testSoup, amount: 4.0)
+        TestVM.removeItemFromCart(invItem: testSoup, amount: 1.0)
+        
+        XCTAssertEqual(6.0, TestVM.total)
     }
 
     func testPerformanceExample() {
